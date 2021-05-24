@@ -1,0 +1,29 @@
+<section class="content container-fluid">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-lg-12">
+        <div class="box box-default page-box" style="height: auto !important;">
+          <div class="box-header">
+            <div class="icon-inline"><em class="material-icons material-icons-headings-gy">list_alt</em><h2>Detailed View</h2></div>
+          </div>
+          <dx-data-grid id="gridContainer"
+                        [dataSource]=""
+                        [allowColumnReordering]="true"
+                        [showBorders]="true">
+
+            <dxi-column dataField="" caption="Student Number" [groupIndex]="0"></dxi-column>
+            <dxi-column dataField="" caption="First Name"></dxi-column>
+            <dxi-column dataField="" caption="Surname"></dxi-column>
+            <dxi-column dataField="" caption="Course Code"></dxi-column>
+            <dxi-column dataField="" caption="Course Description"></dxi-column>
+            <dxi-column dataField="" caption="Grade"></dxi-column>
+            <dxo-search-panel [visible]="true"></dxo-search-panel>
+            <dxo-paging [pageSize]="10"></dxo-paging>
+            <dxo-group-panel [visible]="true"></dxo-group-panel>
+            <dxo-grouping #expand [autoExpandAll]="false"></dxo-grouping>
+          </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+<section class="content container-fluid">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-lg-12">
+        <div class="box box-default page-box" style="height: auto !important;">
+          <div class="box-header">
+            <div class="icon-inline"><em class="material-icons material-icons-headings-gy">source</em><h2>View Students</h2></div>
+          </div>
+          <dx-data-grid #status id="Employee" [dataSource]="dataSource"
+                        [remoteOperations]="true"
+                        showBorders="true"
+                        keyExpr="id"
+                        [hoverStateEnabled]="true" class="dx-table">
+            <dxo-search-panel [visible]="true"></dxo-search-panel>
+            <dxo-paging [pageSize]="15"></dxo-paging>
+            <dxo-pager [showPageSizeSelector]="true"
+                       [allowedPageSizes]="[10, 15, 20, 25, 50]"
+                       [showInfo]="true"
+                       [showNavigationButtons]="true">
+            </dxo-pager>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-group-panel [visible]="true"></dxo-group-panel>
+            <dxo-editing mode="popup"
+                         [allowAdding]="true"
+                         [allowUpdating]="true"
+                         [allowDeleting]="true">
+              <dxo-popup title="Employee Info"
+                         [showTitle]="true"
+                         [width]="700"
+                         [height]="360">
+              </dxo-popup>
+            </dxo-editing>
+            <dxo-grouping [autoExpandAll]="false"></dxo-grouping>
+            <dxo-export [enabled]="true" fileName="student-List"></dxo-export>
+
+            <dxi-column dataField="" caption="Student Number">
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="" caption="First Name">
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="" caption="Surname">
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="" caption="Course Code">
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="" caption="Course Description">
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="" caption="Grade">
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+          </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
