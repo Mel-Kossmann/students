@@ -34,7 +34,7 @@ namespace DataAccessLayer
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .Build();
 
-            _connectionString = configuration.GetConnectionString("ESSConnection");
+            _connectionString = configuration.GetConnectionString("SMSConnection");
         }
     }
 }
