@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { DetailedViewComponent } from './detailed-view/detailed-view.component';
+import { AddStudentsComponent } from './add-students/add-students.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxDataGridModule, DxDropDownBoxModule, DxFormModule, DxGalleryModule, DxPieChartModule, DxPopoverModule, DxPopupModule, DxScrollViewModule, DxSelectBoxModule, DxSliderModule, DxTabPanelModule, DxTabsModule, DxTagBoxModule, DxTemplateModule, DxTooltipModule, DxTreeViewModule } from 'devextreme-angular';
@@ -18,6 +19,7 @@ import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxD
     NavMenuComponent,
     HomeComponent,
     DetailedViewComponent,
+    AddStudentsComponent,
     UploadFileComponent,
     AboutUsComponent
   ],
@@ -49,6 +51,7 @@ import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxD
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'detailed-view', component: DetailedViewComponent },
       { path: 'upload-file', component: UploadFileComponent },
+      { path: 'add-students', component: AddStudentsComponent },
       { path: 'about-us', component: AboutUsComponent },
     ])
   ],

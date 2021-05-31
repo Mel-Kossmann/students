@@ -6,8 +6,12 @@ import * as AspNetData from 'devextreme-aspnet-data-nojquery';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-
+  dataSource: any;
   constructor(@Inject('BASE_URL') baseUrl: string) {
+    this.dataSource = this.dataSource = AspNetData.createStore({
+      key: 'id',
+      loadUrl: baseUrl + 'api/ViewStudent'
+    });
   }
 
 }
