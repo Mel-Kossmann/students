@@ -8,8 +8,7 @@
           </div>
           <dx-data-grid #status id="Employee" [dataSource]="dataSource"
                         [remoteOperations]="true"
-                        showBorders="true"
-                        keyExpr="id"
+                        showBorders="true"                        
                         [hoverStateEnabled]="true" class="dx-table">
             <dxo-search-panel [visible]="true"></dxo-search-panel>
             <dxo-paging [pageSize]="15"></dxo-paging>
@@ -34,22 +33,22 @@
             <dxo-grouping [autoExpandAll]="false"></dxo-grouping>
             <dxo-export [enabled]="true" fileName="student-List"></dxo-export>
 
-            <dxi-column dataField="" caption="Student Number">
+            <dxi-column dataField="studentNr" caption="Student Number">
               <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
-            <dxi-column dataField="" caption="First Name">
+            <dxi-column dataField="name" caption="First Name">
               <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
-            <dxi-column dataField="" caption="Surname">
+            <dxi-column dataField="surname" caption="Surname">
               <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
-            <dxi-column dataField="" caption="Course Code">
+            <dxi-column dataField="courseCode" caption="Course Code">
               <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
-            <dxi-column dataField="" caption="Course Description">
+            <dxi-column dataField="courseDesc" caption="Course Description">
               <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
-            <dxi-column dataField="" caption="Grade">
+            <dxi-column dataField="grade" caption="Grade">
               <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
           </dx-data-grid>
