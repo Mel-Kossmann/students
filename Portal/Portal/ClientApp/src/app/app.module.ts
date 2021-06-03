@@ -50,7 +50,7 @@ import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxD
     DxTagBoxModule,
     DxPieChartModule,  
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: '' },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'detailed-view', component: DetailedViewComponent },
       { path: 'upload-file', component: UploadFileComponent },
       { path: 'add-students', component: AddStudentsComponent },
