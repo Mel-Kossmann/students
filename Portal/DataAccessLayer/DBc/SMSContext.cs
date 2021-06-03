@@ -18,6 +18,7 @@ namespace DataAccessLayer.DBc
         }
 
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<File> Files { get; set; }
         public virtual DbSet<Grade> Grades { get; set; }
         public virtual DbSet<Student> Students { get; set; }
 
@@ -47,6 +48,15 @@ namespace DataAccessLayer.DBc
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<File>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.FileName).HasMaxLength(50);
+
+                entity.Property(e => e.UploadFile).IsUnicode(false);
             });
 
             modelBuilder.Entity<Grade>(entity =>

@@ -6,11 +6,14 @@
           <div class="box-header">
             <div class="icon-inline"><em class="material-icons material-icons-headings-gy">add</em><h2>Upload File</h2></div>
           </div>
-          <dx-data-grid #status id="Company" [dataSource]=""
+          <dx-data-grid #status
+                        [dataSource]="dataSource"
                         [remoteOperations]="true"
                         showBorders="true"
                         keyExpr="id"
-                        [hoverStateEnabled]="true" class="dx-table">
+                        [hoverStateEnabled]="true"
+                        (onSaved)="SaveDone($event)"
+                        class="dx-table">
             <dxo-search-panel [visible]="true"></dxo-search-panel>
             <dxo-paging [pageSize]="15"></dxo-paging>
             <dxo-pager [showPageSizeSelector]="true"
@@ -21,7 +24,7 @@
             <dxo-filter-row [visible]="true"></dxo-filter-row>
             <dxo-header-filter [visible]="true"></dxo-header-filter>
             <dxo-group-panel [visible]="false"></dxo-group-panel>
-            <dxo-editing mode="row"
+            <dxo-editing mode="form"
                          [allowAdding]="true"
                          [allowUpdating]="false"
                          [allowDeleting]="false">
@@ -33,8 +36,17 @@
             </dxo-editing>
             <dxo-grouping [autoExpandAll]="false"></dxo-grouping>
             <dxo-export [enabled]="false" fileName="Files-List"></dxo-export>
-            <dxi-column dataField="" caption="File Name">
+
+            <dxi-column [allowFiltering]="false" [allowSorting]="false" caption="" [visible]="false" cellTemplate="cellTemplate" editCellTemplate="editCellTemplate">
             </dxi-column>
+
+            <div *dxTemplate="let cellInfo of 'editCellTemplate'" class="uploader">
+              <dx-button text="Upload File" (onClick)="upload($event,cellInfo)" type="default" stylingMode="outlined">
+              </dx-button>
+            </div>
+
+            <dxi-column [allowHeaderFiltering]="false" dataField="additionalInfo" caption="Additional Info File Name" [allowEditing]="false"></dxi-column>
+
           </dx-data-grid>
         </div>
       </div>

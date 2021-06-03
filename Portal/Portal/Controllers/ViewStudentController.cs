@@ -20,21 +20,22 @@ namespace VWDMS.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(DataSourceLoadOptions loadOptions)
         {
-            var data = from g in db.Grades
+            /*var source = from g in db.Grades
                        join s in db.Students on g.StudentId equals s.Id
                        join c in db.Courses on g.CourseId equals c.Id
-                       select new { StudentNr = g.Student.StudentNr, Name = g.Student.Name, Surname = g.Student.Surname, CourseCode = g.Course.CourseCode, CourseDesc = g.Course.CourseDesc, Grade = g.Grade1 };
+                       select new { StudentNr = g.Student.StudentNr, Name = g.Student.Name, Surname = g.Student.Surname, CourseCode = g.Course.CourseCode, CourseDesc = g.Course.CourseDesc, Grade = g.Grade1 };*/
 
-            /*var source = db.Students
-                .Select(p => new DataAccessLayer.DTO.Student
-                {
-                    Id = p.Id,
-                    StudentNr = p.StudentNr,
-                    Name = p.Name,
-                    Surname = p.Surname
-                });*/
+            var source = db.Grades.Select(g => new DataAccessLayer.DTO.ViewStudents
+            {
+                StudentNr = g.Student.StudentNr,
+                Name = g.Student.Name,
+                Surname = g.Student.Surname,
+                CourseCode = g.Course.CourseCode,
+                CourseDesc = g.Course.CourseDesc,
+                Grade = g.Grade1
+            });
 
-            return Ok(await DataSourceLoader.LoadAsync(data, loadOptions));
+            return Ok(await DataSourceLoader.LoadAsync(source, loadOptions));
         }
     }
 }

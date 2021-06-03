@@ -13,7 +13,7 @@ import { AddStudentsComponent } from './add-students/add-students.component';
 import { AddCoursesComponent } from './add-courses/add-courses.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxDataGridModule, DxDropDownBoxModule, DxFormModule, DxGalleryModule, DxPieChartModule, DxPopoverModule, DxPopupModule, DxScrollViewModule, DxSelectBoxModule, DxSliderModule, DxTabPanelModule, DxTabsModule, DxTagBoxModule, DxTemplateModule, DxTooltipModule, DxTreeViewModule } from 'devextreme-angular';
+import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxDataGridModule, DxDropDownBoxModule, DxFormModule, DxGalleryModule, DxPieChartModule, DxPopoverModule, DxPopupModule, DxScrollViewModule, DxSelectBoxModule, DxSliderModule, DxTabPanelModule, DxTabsModule, DxTagBoxModule, DxTemplateModule, DxTooltipModule, DxTreeViewModule, DxFileUploaderModule } from 'devextreme-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +30,7 @@ import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxD
     HttpClientModule,
     DxTabPanelModule,
     DxTreeViewModule,
+    DxFileUploaderModule,
     DxTemplateModule,
     DxTooltipModule,
     DxPopupModule,
