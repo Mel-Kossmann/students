@@ -41,10 +41,11 @@
             </dxi-column>
 
             <div *dxTemplate="let cellInfo of 'editCellTemplate'" class="uploader">
-              <dx-button text="Upload File" (onClick)="upload($event,cellInfo)" type="default" stylingMode="outlined">
-              </dx-button>
+              <dx-file-uploader name='myFile' uploadUrl="/FileUpload" [multiple]="true"
+                                accept="*" uploadMode="instantly" (onUploaded)="onUploaded($event,cellInfo)">
+              </dx-file-uploader>
             </div>
-
+            
             <dxi-column [allowHeaderFiltering]="false" dataField="additionalInfo" caption="Additional Info File Name" [allowEditing]="false"></dxi-column>
 
           </dx-data-grid>
