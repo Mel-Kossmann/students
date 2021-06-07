@@ -7,19 +7,19 @@
             <div class="icon-inline"><em class="material-icons material-icons-headings-gy">list_alt</em><h2>Detailed View</h2></div>
           </div>
           <dx-data-grid id="gridContainer"
-                        [dataSource]=""
+                        [dataSource]="dataSource"
                         [allowColumnReordering]="true"
                         [showBorders]="true">
-
-            <dxi-column dataField="" caption="Student Number" [groupIndex]="0"></dxi-column>
-            <dxi-column dataField="" caption="First Name"></dxi-column>
-            <dxi-column dataField="" caption="Surname"></dxi-column>
-            <dxi-column dataField="" caption="Course Code"></dxi-column>
-            <dxi-column dataField="" caption="Course Description"></dxi-column>
-            <dxi-column dataField="" caption="Grade"></dxi-column>
+            <dxi-column dataField="studentNr" caption="Student Number" [groupIndex]="0"></dxi-column>
+            <dxi-column dataField="name" caption="First Name"></dxi-column>
+            <dxi-column dataField="surname" caption="Surname"></dxi-column>
+            <dxi-column dataField="courseCode" caption="Course Code"></dxi-column>
+            <dxi-column dataField="courseDesc" caption="Course Description"></dxi-column>
+            <dxi-column dataField="grade" caption="Grade"></dxi-column>
             <dxo-search-panel [visible]="true"></dxo-search-panel>
-            <dxo-paging [pageSize]="10"></dxo-paging>
+            <dxo-paging [pageSize]="25"></dxo-paging>
             <dxo-group-panel [visible]="true"></dxo-group-panel>
+            <dxo-export [enabled]="true" fileName="detailed-view-List"></dxo-export>
             <dxo-grouping #expand [autoExpandAll]="false"></dxo-grouping>
           </dx-data-grid>
         </div>

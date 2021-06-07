@@ -53,7 +53,7 @@ import { StudentService } from './services/StudentService.service';
     DxTagBoxModule,
     DxPieChartModule,  
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent},
       { path: 'detailed-view', component: DetailedViewComponent },
       { path: 'upload-file', component: UploadFileComponent },
       { path: 'add-students', component: AddStudentsComponent },

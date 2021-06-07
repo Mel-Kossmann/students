@@ -36,7 +36,7 @@ namespace VWDMS.Controllers
         {
             var Obj = new DataAccessLayer.DBc.Course();
             JsonConvert.PopulateObject(values, Obj);
-            var checkEntry = db.Courses.Where(c => c.CourseCode == Obj.CourseCode).FirstOrDefault();
+            var checkEntry = db.Courses.Where(c => c.CourseCode == Obj.CourseCode).FirstOrDefault();            
             if(checkEntry != null)
             {
                 return BadRequest("Course already exists.");

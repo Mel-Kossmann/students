@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DxDataGridComponent } from 'devextreme-angular';
 import * as AspNetData from 'devextreme-aspnet-data-nojquery';
 import { StudentService } from '../services/StudentService.service';
@@ -14,7 +15,7 @@ export class UploadFileComponent implements AfterViewInit {
   
   @ViewChild(DxDataGridComponent, { static: false }) dataGrid: DxDataGridComponent;
 
-  constructor(@Inject('BASE_URL') baseUrl: string, private studentService: StudentService) {
+  constructor(@Inject('BASE_URL') baseUrl: string, private studentService: StudentService, private router: Router, private route: ActivatedRoute) {
     this.dataSource = this.dataSource = AspNetData.createStore({
       loadUrl: baseUrl + 'api/File'
     });
@@ -65,7 +66,7 @@ export class UploadFileComponent implements AfterViewInit {
           }
         }
       };
-
+      this.router.navigate([`/`], {relativeTo: this.route });
       reader.onerror = function () {
         console.log(reader.error);
       }

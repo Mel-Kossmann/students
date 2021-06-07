@@ -94,32 +94,36 @@ namespace VWDMS.Controllers
         {
             try
             {                
-
-               var StudentObj = new DataAccessLayer.DBc.Student
-                {                      
-                    StudentNr = studentNr,
-                    Name = firstname,
-                    Surname = surname                 
-                };             
-                db.Students.Add(StudentObj);                
-                db.SaveChanges();
-                
-                var CourseObj = new DataAccessLayer.DBc.Course
+                var course = db.Courses.Where(c => c.CourseCode == courseCode && c.CourseDesc == courseDesc).FirstOrDefault();
+                if(course == null)
                 {
-                    CourseCode = courseCode,
-                    CourseDesc = courseDesc
-                };
-                db.Courses.Add(CourseObj);
-                db.SaveChanges();
+                    course = new DataAccessLayer.DBc.Course
+                    {
+                        CourseCode = courseCode,
+                        CourseDesc = courseDesc
+                    };
+                }
 
-                var GradeObj = new DataAccessLayer.DBc.Grade
+                var student = db.Students.Where(c => c.StudentNr == studentNr && c.Name == firstname && c.Surname == surname).FirstOrDefault();
+                if (student == null)
                 {
-                    StudentId = StudentObj.Id,
-                    CourseId = CourseObj.Id,
-                    Grade1 = grade
+                    student = new DataAccessLayer.DBc.Student
+                    {
+                        StudentNr = studentNr,
+                        Name = firstname,
+                        Surname = surname
+                    };
+                }
+
+                var gradeObj = new DataAccessLayer.DBc.Grade
+                {
+                    Grade1 = grade,
+                    Course = course,
+                    Student = student
                 };
-                db.Grades.Add(GradeObj);
-                db.SaveChanges();
+
+                db.Grades.Add(gradeObj);
+                db.SaveChanges();        
                 return Ok();
             }
             catch (Exception e)
