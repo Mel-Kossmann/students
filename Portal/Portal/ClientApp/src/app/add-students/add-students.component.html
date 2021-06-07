@@ -17,6 +17,12 @@
             <dxo-search-panel [visible]="true"></dxo-search-panel>
             <dxo-paging [pageSize]="10"></dxo-paging>
             <dxo-group-panel [visible]="true"></dxo-group-panel>
+            <dxo-editing mode="row"
+                         [allowAdding]="true"
+                         [allowUpdating]="true"
+                         [allowDeleting]="true">
+            </dxo-editing>
+            <dxo-export [enabled]="true" fileName="Student-List"></dxo-export>
             <dxo-grouping #expand [autoExpandAll]="false"></dxo-grouping>
           </dx-data-grid>
         </div>

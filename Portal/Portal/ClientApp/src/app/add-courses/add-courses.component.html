@@ -11,13 +11,18 @@
                         [allowColumnReordering]="true"
                         [showBorders]="true"
                         keyExpr="id">
-            <dxi-column dataField="studentNr" caption="Student Number"></dxi-column>
-            <dxi-column dataField="name" caption="First Name"></dxi-column>
-            <dxi-column dataField="surname" caption="Surname"></dxi-column>
+            <dxi-column dataField="courseCode" caption="Course Code"></dxi-column>
+            <dxi-column dataField="courseDesc" caption="Course Description"></dxi-column>
             <dxo-search-panel [visible]="true"></dxo-search-panel>
             <dxo-paging [pageSize]="10"></dxo-paging>
             <dxo-group-panel [visible]="true"></dxo-group-panel>
             <dxo-grouping #expand [autoExpandAll]="false"></dxo-grouping>
+            <dxo-editing mode="row"
+                         [allowAdding]="true"
+                         [allowUpdating]="true"
+                         [allowDeleting]="true">
+            </dxo-editing>
+            <dxo-export [enabled]="true" fileName="Course-List"></dxo-export>
           </dx-data-grid>
         </div>
       </div>

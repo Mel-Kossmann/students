@@ -6,49 +6,9 @@
           <div class="box-header">
             <div class="icon-inline"><em class="material-icons material-icons-headings-gy">add</em><h2>Upload File</h2></div>
           </div>
-          <dx-data-grid #status
-                        [dataSource]="dataSource"
-                        [remoteOperations]="true"
-                        showBorders="true"
-                        keyExpr="id"
-                        [hoverStateEnabled]="true"
-                        (onSaved)="SaveDone($event)"
-                        class="dx-table">
-            <dxo-search-panel [visible]="true"></dxo-search-panel>
-            <dxo-paging [pageSize]="15"></dxo-paging>
-            <dxo-pager [showPageSizeSelector]="true"
-                       [allowedPageSizes]="[10, 15, 20, 25, 50]"
-                       [showInfo]="true"
-                       [showNavigationButtons]="true">
-            </dxo-pager>
-            <dxo-filter-row [visible]="true"></dxo-filter-row>
-            <dxo-header-filter [visible]="true"></dxo-header-filter>
-            <dxo-group-panel [visible]="false"></dxo-group-panel>
-            <dxo-editing mode="form"
-                         [allowAdding]="true"
-                         [allowUpdating]="false"
-                         [allowDeleting]="false">
-              <dxo-popup title="Company Info"
-                         [showTitle]="true"
-                         [width]="700"
-                         [height]="525">
-              </dxo-popup>
-            </dxo-editing>
-            <dxo-grouping [autoExpandAll]="false"></dxo-grouping>
-            <dxo-export [enabled]="false" fileName="Files-List"></dxo-export>
-
-            <dxi-column [allowFiltering]="false" [allowSorting]="false" caption="" [visible]="false" cellTemplate="cellTemplate" editCellTemplate="editCellTemplate">
-            </dxi-column>
-
-            <div *dxTemplate="let cellInfo of 'editCellTemplate'" class="uploader">
-              <dx-file-uploader name='myFile' uploadUrl="/FileUpload" [multiple]="true"
-                                accept="*" uploadMode="instantly" (onUploaded)="onUploaded($event,cellInfo)">
-              </dx-file-uploader>
-            </div>
-            
-            <dxi-column [allowHeaderFiltering]="false" dataField="additionalInfo" caption="Additional Info File Name" [allowEditing]="false"></dxi-column>
-
-          </dx-data-grid>
+          <input id="upload" class="uploaded" type="file" />
+          <!--<dx-button icon="add" text="Done" (onClick)="onUploaded($event)" type="default" stylingMode="outlined">
+          </dx-button>-->
         </div>
       </div>
     </div>

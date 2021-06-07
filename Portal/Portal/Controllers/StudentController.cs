@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using NLog;
 using Portal;
+using DataAccessLayer.DTO;
+using Microsoft.AspNetCore.Http;
 
 namespace VWDMS.Controllers
 {
@@ -85,6 +87,45 @@ namespace VWDMS.Controllers
                 return BadRequest("Student not deleted.");
             }
 
+        }
+
+        [HttpPost("upload")]
+        public ActionResult upload(int studentNr, string firstname, string surname, string courseCode, string courseDesc, string grade)
+        {
+            try
+            {                
+
+               var StudentObj = new DataAccessLayer.DBc.Student
+                {                      
+                    StudentNr = studentNr,
+                    Name = firstname,
+                    Surname = surname                 
+                };             
+                db.Students.Add(StudentObj);                
+                db.SaveChanges();
+                
+                var CourseObj = new DataAccessLayer.DBc.Course
+                {
+                    CourseCode = courseCode,
+                    CourseDesc = courseDesc
+                };
+                db.Courses.Add(CourseObj);
+                db.SaveChanges();
+
+                var GradeObj = new DataAccessLayer.DBc.Grade
+                {
+                    StudentId = StudentObj.Id,
+                    CourseId = CourseObj.Id,
+                    Grade1 = grade
+                };
+                db.Grades.Add(GradeObj);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception e)
+            {                
+                return StatusCode(StatusCodes.Status500InternalServerError, e.ToString());
+            }
         }
     }
 }

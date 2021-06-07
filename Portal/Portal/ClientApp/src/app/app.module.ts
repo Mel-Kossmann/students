@@ -14,6 +14,8 @@ import { AddCoursesComponent } from './add-courses/add-courses.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxDataGridModule, DxDropDownBoxModule, DxFormModule, DxGalleryModule, DxPieChartModule, DxPopoverModule, DxPopupModule, DxScrollViewModule, DxSelectBoxModule, DxSliderModule, DxTabPanelModule, DxTabsModule, DxTagBoxModule, DxTemplateModule, DxTooltipModule, DxTreeViewModule, DxFileUploaderModule } from 'devextreme-angular';
+
+import { StudentService } from './services/StudentService.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,7 @@ import { DxAccordionModule, DxButtonModule, DxChartModule, DxCheckBoxModule, DxD
       { path: 'about-us', component: AboutUsComponent },
     ])
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
