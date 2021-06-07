@@ -29,23 +29,55 @@ export class UploadFileComponent implements AfterViewInit {
     }
 
     document.getElementById("upload").onchange = function (e?: HTMLInputEvent) {
-     /*let files: any = e.target.files[0];
-      console.log("files: " + files[0]);*/
+     let file: any = e.target.files[0];      
 
-      const fileList = e.target.files[0];
-      //console.log("fileList: " + fileList);
+      const fileList = e.target.files[0];      
       const name = e.target.files[0].name;
       console.log("Name: " + name);
       console.log("Results: " + e.target.files);
-
-      var data;
+      
       const reader = new FileReader();
-      reader.addEventListener('load', (event) => {
-        data = fileList;
-      });
-      reader.readAsText(e.target.files[0]);
-      console.log("Data: "+data);
+      reader.readAsText(file);
 
+      
+      reader.onload = function () {
+        //console.log("READER" + reader.result);
+        var csv = reader.result.toString();
+
+        var allTextLines = csv.split(/\r\n|\n/);
+        var headers = allTextLines[0].split(';');        
+
+        for (var i = 1; i < allTextLines.length; i++) {
+          var data = allTextLines[i].split(';');
+          if (data.length == headers.length) {            
+            var taff = [];
+
+            var studentNr;
+            var firstname;
+            var surname;
+            var courseCode;
+            var courseDesc;
+            var grade;
+
+            for (var j = 0; j < headers.length; j++) {              
+              taff.push(data[j]);
+              studentNr = taff[0];
+              firstname = taff[1];
+              surname = taff[2];
+              courseCode = taff[3];
+              courseDesc = taff[4];
+              grade = taff[5];
+            }
+            //console.log(studentNr, firstname, surname, courseCode, courseDesc, grade);            
+            this.studentServce.setStudents(studentNr, firstname, surname, courseCode, courseDesc, grade).subscribe(data => { });                 
+          }
+        }
+
+      };
+
+      reader.onerror = function () {
+        console.log(reader.error);
+      }
     }
   }
 
