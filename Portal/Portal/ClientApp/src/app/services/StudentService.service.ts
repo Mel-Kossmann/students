@@ -8,8 +8,7 @@ export class StudentService {
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
   }
-
-  /*setStudents(studentNr: any, firstname: any, surname: any, courseCode: any, courseDesc: any, grade: any) {*/
+  
   setStudents(studentNr: any, firstname: any, surname: any,courseCode:any, courseDesc:any, grade:any) {
     /* let params = new HttpParams();
     params = params.append('studentNr', studentNr);
