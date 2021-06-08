@@ -1,5 +1,7 @@
-import { Component,Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+
 import * as AspNetData from 'devextreme-aspnet-data-nojquery';
+import { StudentService } from '../services/StudentService.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,9 @@ import * as AspNetData from 'devextreme-aspnet-data-nojquery';
 })
 export class HomeComponent {
   dataSource: any;
-  constructor(@Inject('BASE_URL') baseUrl: string) {
-    this.dataSource = this.dataSource = AspNetData.createStore({      
+
+  constructor(@Inject('BASE_URL') baseUrl: string, private studentService: StudentService) {
+   this.dataSource = this.dataSource = AspNetData.createStore({      
       loadUrl: baseUrl + 'api/ViewStudent'
     });
   }

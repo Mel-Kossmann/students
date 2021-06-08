@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import notify from 'devextreme/ui/notify';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DxDataGridComponent } from 'devextreme-angular';
 import * as AspNetData from 'devextreme-aspnet-data-nojquery';
@@ -66,9 +67,12 @@ export class UploadFileComponent implements AfterViewInit {
           }
         }
       };
-      this.router.navigate([`/`], {relativeTo: this.route });
+      //this.router.navigate([`/`], {relativeTo: this.route });      
+      notify("File successfully uploaded", 'success', 2000);
+
       reader.onerror = function () {
         console.log(reader.error);
+        notify("Failed to upload file", 'success', 2000);
       }
     }
   }

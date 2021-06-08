@@ -17,8 +17,13 @@ export class StudentService {
     params = params.append('courseCode', courseCode);
     params = params.append('courseDesc', courseDesc);
     params = params.append('grade', grade); */
-    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json' }); //service pages
+    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(this.baseUrl + 'api/Student/upload?studentNr=' + studentNr + '&firstname=' + firstname + '&surname=' + surname + '&courseCode=' + courseCode + '&courseDesc=' + courseDesc + '&grade=' + grade, { headers: reqHeader });
     //{ params: params, headers: reqHeader}
+  }
+
+  getStudents() {
+    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get(this.baseUrl + 'api/ViewStudent', { headers: reqHeader });
   }
 }
