@@ -18,7 +18,6 @@ namespace DataAccessLayer.DBc
         }
 
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<File> Files { get; set; }
         public virtual DbSet<Grade> Grades { get; set; }
         public virtual DbSet<Student> Students { get; set; }
 
@@ -40,23 +39,12 @@ namespace DataAccessLayer.DBc
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.CourseCode)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.CourseDesc)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<File>(entity =>
-            {
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.FileName).HasMaxLength(50);
-
-                entity.Property(e => e.UploadFile).IsUnicode(false);
             });
 
             modelBuilder.Entity<Grade>(entity =>
@@ -64,7 +52,6 @@ namespace DataAccessLayer.DBc
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Grade1)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("Grade")
@@ -73,13 +60,11 @@ namespace DataAccessLayer.DBc
                 entity.HasOne(d => d.Course)
                     .WithMany(p => p.Grades)
                     .HasForeignKey(d => d.CourseId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Grades_Courses");
 
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Grades)
                     .HasForeignKey(d => d.StudentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Grades_Students");
             });
 
@@ -88,12 +73,10 @@ namespace DataAccessLayer.DBc
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Name)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Surname)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
