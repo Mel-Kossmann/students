@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portal", "Portal\Portal.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{43FD2755-DBDF-4D70-B671-6B61ED246143}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{BC6580B7-E784-4AAA-AD29-79BC311EA034}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43FD2755-DBDF-4D70-B671-6B61ED246143} = {43FD2755-DBDF-4D70-B671-6B61ED246143}
+		{177E3978-79C2-44D6-AABD-7DD86CDB83C1} = {177E3978-79C2-44D6-AABD-7DD86CDB83C1}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,10 @@ Global
 		{43FD2755-DBDF-4D70-B671-6B61ED246143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43FD2755-DBDF-4D70-B671-6B61ED246143}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43FD2755-DBDF-4D70-B671-6B61ED246143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6580B7-E784-4AAA-AD29-79BC311EA034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6580B7-E784-4AAA-AD29-79BC311EA034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6580B7-E784-4AAA-AD29-79BC311EA034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6580B7-E784-4AAA-AD29-79BC311EA034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
